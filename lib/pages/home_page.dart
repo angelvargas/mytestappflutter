@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mytestappflutter/fragments/fist_fragment.dart';
 import 'package:mytestappflutter/fragments/second_fragment.dart';
@@ -25,6 +27,7 @@ class HomePage extends StatefulWidget{
 
 class HomePageState extends State<HomePage>{
   int _selectedDrawerIndex = 0;
+  int _cIndex = 0;
 
   _getDrawerItemWidget(int pos){
     switch (pos) {
@@ -57,6 +60,14 @@ class HomePageState extends State<HomePage>{
         )
       );
     }
+    
+    
+    void _incrementTab(int index) {
+      setState(() {
+        _cIndex = _selectedDrawerIndex;
+      });
+    }
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
@@ -71,6 +82,30 @@ class HomePageState extends State<HomePage>{
         ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedDrawerIndex,
+        selectedItemColor: Colors.amber[800],
+        //type: BottomNavigationBarType.shifting,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Color.fromARGB(255, 0, 0, 0) ),
+            title: Text('Icono 1')
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business, color: Color.fromARGB(255, 0, 0, 0) ),
+            title: Text('Icono 2')
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school, color: Color.fromARGB(255, 0, 0, 0) ),
+            title: Text('Icono 2')
+          ),
+        ],
+        onTap: (index){
+          debugPrint(index.toString());
+          //_incrementTab(index);
+          _onSelectItem(index);
+        },
+      )
     );
   }
 }
