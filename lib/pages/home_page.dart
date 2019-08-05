@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:mytestappflutter/fragments/fist_fragment.dart';
 import 'package:mytestappflutter/fragments/second_fragment.dart';
 import 'package:mytestappflutter/fragments/third_fragment.dart';
-import 'package:flutter/material.dart';
 
 class DrawerItem {
   String title;
@@ -27,7 +24,6 @@ class HomePage extends StatefulWidget{
 
 class HomePageState extends State<HomePage>{
   int _selectedDrawerIndex = 0;
-  int _cIndex = 0;
 
   _getDrawerItemWidget(int pos){
     switch (pos) {
@@ -38,12 +34,21 @@ class HomePageState extends State<HomePage>{
       case 2:
         return new ThirdFragment();  
       default:
-        return new Text("Error");
+        return new FirstFragment();
+        //return new Text("Error");
     }
   }
   _onSelectItem(int index){
     setState(() => _selectedDrawerIndex = index);
     Navigator.of(context).pop();
+  }
+
+  void _onSelectIcon(int index){
+    setState(() {
+      _selectedDrawerIndex = index;
+    });
+    //setState(() => _selectedDrawerIndex = index);
+    //Navigator.of(context).pop();
   }
 
   @override
@@ -59,13 +64,6 @@ class HomePageState extends State<HomePage>{
           onTap: ()=>_onSelectItem(i),
         )
       );
-    }
-    
-    
-    void _incrementTab(int index) {
-      setState(() {
-        _cIndex = _selectedDrawerIndex;
-      });
     }
 
     return new Scaffold(
@@ -102,8 +100,7 @@ class HomePageState extends State<HomePage>{
         ],
         onTap: (index){
           debugPrint(index.toString());
-          //_incrementTab(index);
-          _onSelectItem(index);
+          _onSelectIcon(index);
         },
       )
     );
