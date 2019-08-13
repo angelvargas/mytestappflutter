@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mytestappflutter/fragments/fist_fragment.dart';
+import 'package:mytestappflutter/fragments/SegundoReto.dart';
 import 'package:mytestappflutter/fragments/second_fragment.dart';
 import 'package:mytestappflutter/fragments/third_fragment.dart';
 
@@ -28,13 +28,13 @@ class HomePageState extends State<HomePage>{
   _getDrawerItemWidget(int pos){
     switch (pos) {
       case 0:
-        return new FirstFragment();
+        return new SegundoReto();
       case 1:
         return new SecondFragment();
       case 2:
         return new ThirdFragment();  
       default:
-        return new FirstFragment();
+        return new SegundoReto();
         //return new Text("Error");
     }
   }
