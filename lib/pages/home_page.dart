@@ -11,7 +11,7 @@ class DrawerItem {
 
 class HomePage extends StatefulWidget{
   final drawerItems = [
-    new DrawerItem("Fragment 1", Icons.rss_feed),
+    new DrawerItem("Segundo Reto", Icons.rss_feed),
     new DrawerItem("Fragment 2", Icons.local_pizza),
     new DrawerItem("Fragment 3", Icons.info)
   ];
@@ -80,7 +80,7 @@ class HomePageState extends State<HomePage>{
         ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedDrawerIndex,
         selectedItemColor: Colors.amber[800],
         //type: BottomNavigationBarType.shifting,
@@ -102,7 +102,7 @@ class HomePageState extends State<HomePage>{
           debugPrint(index.toString());
           _onSelectIcon(index);
         },
-      )
+      )*/
     );
   }
 }

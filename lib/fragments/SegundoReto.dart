@@ -12,28 +12,18 @@ class SegundoReto extends StatelessWidget {
       ),
       child: Center(
         child: Container(
-          height: 60.0,
+          height: 70.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               stops: [0.5, 0.5],
               colors: [
-                Color.fromRGBO(0, 0, 0, 0.4), 
+                Color.fromRGBO(0, 0, 0, 0.3), 
                 Color.fromRGBO(0, 0, 0, 0.6)
               ],
-              //begin: Alignment.topCenter,
-              //end: Alignment.bottomCenter,
-              //stops: [0.0, 1],
-              //colors: [
-              //  Colors.red,
-              //  Colors.cyan
-                //Color.fromRGBO(0, 0, 0, 0.4),
-                //Color.fromRGBO(0, 0, 0, 0.7)
-              //]
             )
           ),
-          //color: Color.fromRGBO(0, 0, 0, 0.5),
           child: Center(
             child: Text(
               "SOCCER",
