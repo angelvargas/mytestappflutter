@@ -3,6 +3,7 @@ import 'package:mytestappflutter/fragments/SegundoReto.dart';
 import 'package:mytestappflutter/fragments/second_fragment.dart';
 import 'package:mytestappflutter/fragments/third_fragment.dart';
 
+
 class DrawerItem {
   String title;
   IconData icon;
@@ -80,7 +81,7 @@ class HomePageState extends State<HomePage>{
         ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
-      /*bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedDrawerIndex,
         selectedItemColor: Colors.amber[800],
         //type: BottomNavigationBarType.shifting,
@@ -99,10 +100,10 @@ class HomePageState extends State<HomePage>{
           ),
         ],
         onTap: (index){
-          debugPrint(index.toString());
+          //kaleido();
           _onSelectIcon(index);
         },
-      )*/
+      )
     );
   }
 }
