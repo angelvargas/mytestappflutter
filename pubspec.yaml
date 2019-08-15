@@ -25,8 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  web3dart: ^1.1.1+1
   web_socket_channel: ^1.0.0
-  web3dart:  ^1.1.1
   flutter_test:
     sdk: flutter
 
