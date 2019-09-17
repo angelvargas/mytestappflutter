@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mytestappflutter/fragments/SegundoReto.dart';
-import 'package:mytestappflutter/fragments/second_fragment.dart';
-import 'package:mytestappflutter/fragments/third_fragment.dart';
-
+import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
+import 'package:mytestappflutter/views/home/fragments/second_fragment.dart';
+import 'package:mytestappflutter/views/home/fragments/third_fragment.dart';
+//import 'package:mytestappflutter/fragments/ethereum.dart';
 
 class DrawerItem {
   String title;
@@ -13,8 +13,9 @@ class DrawerItem {
 class HomePage extends StatefulWidget{
   final drawerItems = [
     new DrawerItem("Segundo Reto", Icons.rss_feed),
-    new DrawerItem("Fragment 2", Icons.local_pizza),
-    new DrawerItem("Fragment 3", Icons.info)
+    new DrawerItem("Dart web3", Icons.local_pizza),
+    new DrawerItem("Fragment 3", Icons.info),
+    new DrawerItem("Ethereum", Icons.info)
   ];
 
   @override
@@ -33,7 +34,9 @@ class HomePageState extends State<HomePage>{
       case 1:
         return new SecondFragment();
       case 2:
-        return new ThirdFragment();  
+        return new ThirdFragment();
+      case 3:
+        return new SecondFragment();    
       default:
         return new SegundoReto();
         //return new Text("Error");
@@ -81,7 +84,7 @@ class HomePageState extends State<HomePage>{
         ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedDrawerIndex,
         selectedItemColor: Colors.amber[800],
         //type: BottomNavigationBarType.shifting,
@@ -103,7 +106,7 @@ class HomePageState extends State<HomePage>{
           //kaleido();
           _onSelectIcon(index);
         },
-      )
+      )*/
     );
   }
 }

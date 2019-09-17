@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
+  ethereum:
+    dependency: "direct main"
+    description:
+      name: ethereum
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -60,6 +67,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  hex:
+    dependency: transitive
+    description:
+      name: hex
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   http:
     dependency: transitive
     description:
@@ -199,18 +213,11 @@ packages:
     source: hosted
     version: "2.0.8"
   web3dart:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: web3dart
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1+1"
-  web_socket_channel:
-    dependency: "direct dev"
-    description:
-      name: web_socket_channel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.15"
 sdks:
   dart: ">=2.2.2 <3.0.0"
