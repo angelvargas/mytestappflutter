@@ -6,14 +6,14 @@ import 'package:web3dart/web3dart.dart';
 import 'package:flutter/services.dart';
 import 'package:web3dart/json_rpc.dart';
 
-class SecondFragment extends StatefulWidget {
+class Web3jFragment extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new SecondFragmentState();
+    return new Web3jFragmentState();
   }
 }
 
-class SecondFragmentState extends State<SecondFragment> {
+class Web3jFragmentState extends State<Web3jFragment> {
   //u0mjgm2y4w:6VeObr_jUe3C15xoqvXPciihJo5QZ3KFtP8HnDAW8D8
   static String user = "";
   static String pass = "";

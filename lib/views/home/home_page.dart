@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
-import 'package:mytestappflutter/views/home/fragments/second_fragment.dart';
+import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/third_fragment.dart';
 //import 'package:mytestappflutter/fragments/ethereum.dart';
 
@@ -32,11 +32,11 @@ class HomePageState extends State<HomePage>{
       case 0:
         return new SegundoReto();
       case 1:
-        return new SecondFragment();
+        return new Web3jFragment();
       case 2:
         return new ThirdFragment();
       case 3:
-        return new SecondFragment();    
+        return new Web3jFragment();    
       default:
         return new SegundoReto();
         //return new Text("Error");
@@ -84,8 +84,8 @@ class HomePageState extends State<HomePage>{
         ),
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
-      /*bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedDrawerIndex,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedDrawerIndex > 2 ? 0 : _selectedDrawerIndex,
         selectedItemColor: Colors.amber[800],
         //type: BottomNavigationBarType.shifting,
         items: [
@@ -103,10 +103,9 @@ class HomePageState extends State<HomePage>{
           ),
         ],
         onTap: (index){
-          //kaleido();
           _onSelectIcon(index);
         },
-      )*/
+      )
     );
   }
 }
