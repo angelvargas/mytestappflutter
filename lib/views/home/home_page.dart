@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
+import 'package:mytestappflutter/views/home/fragments/crypto_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/third_fragment.dart';
 import 'package:mytestappflutter/presenter/web3j_presenter.dart';
@@ -34,7 +35,7 @@ class HomePageState extends State<HomePage>{
       case 1:
         return new Web3jFragment(new BasicWeb3jPresenter());
       case 2:
-        return new ThirdFragment();
+        return new CryptoFragment();
       case 3:
         return new Web3jFragment(new BasicWeb3jPresenter());    
       default:

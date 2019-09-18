@@ -1,8 +1,8 @@
-//import 'package:mytestappflutter/utils/conexion.dart';
+import 'package:mytestappflutter/utils/conexion.dart';
 //import 'dart:math';
-//import 'package:http/http.dart';
+import 'package:http/http.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_view.dart';
-//import 'package:web3dart/web3dart.dart';
+import 'package:web3dart/web3dart.dart';
 //import 'package:web3dart/json_rpc.dart';
 
 class Web3jPresenter {
@@ -12,12 +12,21 @@ class Web3jPresenter {
 
 class BasicWeb3jPresenter implements Web3jPresenter {
   Web3jView view;
+  Conexion cnx = Conexion();
+  Web3Client _client;
   BasicWeb3jPresenter() {
-    //this.view = "Hello World";
+    this._client = Web3Client(cnx.nodeurl, Client());
   }
   @override
-  void onConectBlockchain() {
-    view.updateBlock('2019');
+  void onConectBlockchain() async {
+    String _answer;
+    try {
+      final _block = await _client.getBlockNumber();
+      _answer = _block.toString();
+    } catch (e) {
+      _answer = 'Error : $e';
+    }
+    view.updateBlock(_answer);
   }
 
   @override
@@ -25,7 +34,7 @@ class BasicWeb3jPresenter implements Web3jPresenter {
     view = value;
   }
   /*
-  Conexion cnx = new Conexion();
+  
   Web3Client _client;
   JsonRPC jsonRpc;
 
