@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/third_fragment.dart';
-//import 'package:mytestappflutter/fragments/ethereum.dart';
+import 'package:mytestappflutter/presenter/web3j_presenter.dart';
 
 class DrawerItem {
   String title;
@@ -32,11 +32,11 @@ class HomePageState extends State<HomePage>{
       case 0:
         return new SegundoReto();
       case 1:
-        return new Web3jFragment();
+        return new Web3jFragment(new BasicWeb3jPresenter());
       case 2:
         return new ThirdFragment();
       case 3:
-        return new Web3jFragment();    
+        return new Web3jFragment(new BasicWeb3jPresenter());    
       default:
         return new SegundoReto();
         //return new Text("Error");
@@ -87,6 +87,13 @@ class HomePageState extends State<HomePage>{
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedDrawerIndex > 2 ? 0 : _selectedDrawerIndex,
         selectedItemColor: Colors.amber[800],
+        unselectedItemColor: Colors.black,
+        elevation: 12.0,
+        iconSize: 30.0,
+        selectedFontSize: 16.0,
+        unselectedFontSize: 13.0,
+        //unselectedLabelStyle: TextStyle(color: Colors.red),
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         //type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(

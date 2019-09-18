@@ -1,95 +1,39 @@
-//import 'dart:io';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'package:web3dart/web3dart.dart';
 import 'package:flutter/services.dart';
-import 'package:web3dart/json_rpc.dart';
+import 'package:mytestappflutter/presenter/web3j_presenter.dart';
+import 'package:mytestappflutter/views/home/fragments/web3j_view.dart';
 
 class Web3jFragment extends StatefulWidget {
+	//final Web3jPresenter presenter;
+	final BasicWeb3jPresenter presenter;
+	final String title;
+	Web3jFragment(this.presenter, {Key key, this.title}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return new Web3jFragmentState();
   }
 }
 
-class Web3jFragmentState extends State<Web3jFragment> {
-  //u0mjgm2y4w:6VeObr_jUe3C15xoqvXPciihJo5QZ3KFtP8HnDAW8D8
-  static String user = "";
-  static String pass = "";
-  static String rpcUrl = "";
-  static String myaddress = '';
-  static String nodeurl = "https://$user:$pass@$rpcUrl";
-  String url = "https://mainnet.infura.io";
-  Web3Client _client;
-  String bloque;
+class Web3jFragmentState extends State<Web3jFragment> implements Web3jView {
   String _address = 'Default';
-  int networkid = 0;
-  JsonRPC jsonRpc;
+  String bloque;
   void initState() {
-    _client = Web3Client(nodeurl, Client());
     super.initState();
+		this.widget.presenter.web3view = this;
   }
-  void test(){
-    print('Second.test');
-  }
-  void getBlockWeb3() async {
+	@override
+  void updateBlock(String block) {
     setState(() {
-      //_client = Web3Client(url, Client());
-      bloque = "Null";
+        bloque = block;
     });
-    try {
-      final _block = await _client.getBlockNumber();
-      setState(() {
-        bloque = _block.toString();
-      });
-      print('Try');
-    } catch (e) {
-      bloque = 'Error : $e';
-    }
   }
-  void ethrpc() async{
-    jsonRpc = JsonRPC(url, Client());
-    final answer = await jsonRpc.call('personal_listAccounts');
-    print(answer.result);
-  }
-  // void newWallet() async {
-  //   try {
-  //     //networkid = await _client.getNetworkId();
-  //     //var rng = new Random.secure();
-  //     //Credentials random = EthPrivateKey.createRandom(rng);
-  //     //var credentials = await _client.credentialsFromPrivateKey("$random");
-  //     //var getaddress = await credentials.extractAddress();
-  //     //EthereumAddress _myaddress = myaddress;
-
-  //     //obtener balance
-  //     //EtherAmount balance = await _client.getBalance(EthereumAddress.fromHex(myaddress));
-
-  //     //final balance = await _client.coinbaseAddress();
-  //     //networkid = await _client.getNetworkId();
-  //     //_client.
-
-  //     _jsonRpc = JsonRPC(url, Client());
-  //     //final rpc = JsonRPC(nodeurl, Client());
-  //     final answer = await _jsonRpc.call('personal_newAccount');
-  //     //print(answer.result as String);
-  //     print(answer.result as List<dynamic>);
-  //     //final data = _client.
-
-  //     setState(() {
-  //       //_address = answer.toString();
-  //     });
-  //     //print(balance.getValueInUnit(EtherUnit.ether));
-  //     //Wallet wallet = Wallet.createNew(credentials, "password", random);
-  //     //print(wallet.toJson());
-  //   } catch (e) {
-  //     _address = 'error:$e';
-  //   }
-  // }
+	void onChangeBlock(){
+		this.widget.presenter.onConectBlockchain();
+	}
 
   @override
   Widget build(BuildContext context) {
-    //final key = new GlobalKey();
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -110,9 +54,10 @@ class Web3jFragmentState extends State<Web3jFragment> {
                 left: 50.0, right: 50.0, top: 20.0, bottom: 20.0),
             child: Text("Scanner"),
             onPressed: () {
-              test();
-              getBlockWeb3();
-              ethrpc();
+							onChangeBlock();
+              //test();
+              //getBlockWeb3();
+              //ethrpc();
               //newWallet();
             },
           ),
@@ -140,4 +85,6 @@ class Web3jFragmentState extends State<Web3jFragment> {
       ),
     );
   }
+
+  
 }
