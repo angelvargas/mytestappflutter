@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
 import 'package:mytestappflutter/views/home/fragments/crypto_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
-import 'package:mytestappflutter/views/home/fragments/third_fragment.dart';
 import 'package:mytestappflutter/presenter/web3j_presenter.dart';
 
 class DrawerItem {
@@ -13,10 +12,11 @@ class DrawerItem {
 
 class HomePage extends StatefulWidget{
   final drawerItems = [
-    new DrawerItem("Segundo Reto", Icons.rss_feed),
+    new DrawerItem("Segundo Reto Platzi", Icons.rss_feed),
     new DrawerItem("Dart web3", Icons.local_pizza),
-    new DrawerItem("Fragment 3", Icons.info),
-    new DrawerItem("Ethereum", Icons.info)
+    new DrawerItem("Crypto Currencies", Icons.info),
+    new DrawerItem("Ethereum", Icons.info),
+    new DrawerItem("Tercer Reto Platzi", Icons.rss_feed),
   ];
 
   @override
