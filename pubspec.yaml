@@ -26,6 +26,7 @@ dependencies:
   ethereum: ^4.0.1
   web3dart: ^1.1.1+1
   flutter_launcher_icons: ^0.7.3
+  dbcrypt: ^1.0.0
   #web_socket_channel: ^1.0.0
   #hex: '^0.1.2'
   #laksadart: ^0.1.19

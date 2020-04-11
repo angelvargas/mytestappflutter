@@ -3,6 +3,7 @@ import 'package:mytestappflutter/views/home/fragments/SegundoReto.dart';
 import 'package:mytestappflutter/views/home/fragments/crypto_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
 import 'package:mytestappflutter/presenter/web3j_presenter.dart';
+import 'package:mytestappflutter/views/test/screenone.dart';
 
 class DrawerItem {
   String title;
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget{
     new DrawerItem("Crypto Currencies", Icons.info),
     new DrawerItem("Ethereum", Icons.info),
     new DrawerItem("Tercer Reto Platzi", Icons.rss_feed),
+    new DrawerItem("screen one", Icons.rss_feed),
   ];
 
   @override
@@ -37,7 +39,9 @@ class HomePageState extends State<HomePage>{
       case 2:
         return new CryptoFragment();
       case 3:
-        return new Web3jFragment(new BasicWeb3jPresenter());    
+        return new Web3jFragment(new BasicWeb3jPresenter());
+      case 5:
+        return ScreenOne();    
       default:
         return new SegundoReto();
         //return new Text("Error");

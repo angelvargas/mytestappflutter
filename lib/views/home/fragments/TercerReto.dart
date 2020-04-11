@@ -23,5 +23,4 @@ class Item {
   String subtitulo;
   String icono;
   Item(this.imagen, this.titulo, this.subtitulo, this.icono );
-  
 }
