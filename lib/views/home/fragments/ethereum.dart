@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:laksadart/laksadart.dart';
+// import 'package:laksadart/laksadart.dart';
 //import 'package:laksadart/src/';
 class EthereumFragment extends StatefulWidget{
   @override
@@ -18,13 +18,13 @@ class EthereumFragmentState extends State<EthereumFragment> {
   static String nodeurl = "https://$user:$pass@$rpcUrl";
   static String url = "https://mainnet.infura.io";
   //Web3Client _client;
-  Laksa _client;
+  // Laksa _client;
   String bloque;
   String _address = 'Default';
   int networkid = 0;
   void initStateE(){
-    _client = new Laksa(nodeUrl:url, networkID:'Kaleido');
-    _client.setNetworkID('979031953');
+    // _client = new Laksa(nodeUrl:url, networkID:'Kaleido');
+    // _client.setNetworkID('979031953');
     super.initState();
   }
   void getBlockE() async {
@@ -33,11 +33,11 @@ class EthereumFragmentState extends State<EthereumFragment> {
       bloque = "Null"; 
     });
     try {
-      _client = new Laksa(nodeUrl:url, networkID:'Kaleido');
-    _client.setNetworkID('979031953');
-      final _block = await _client.blockchain.getNumTransactions(); 
+    //   _client = new Laksa(nodeUrl:url, networkID:'Kaleido');
+    // _client.setNetworkID('979031953');
+    //   final _block = await _client.blockchain.getNumTransactions(); 
       setState(() {
-        bloque = 'Es '+_block.toString();
+        // bloque = 'Es '+_block.toString();
       });
     } catch (e) {
       //bloque = 'Error : $e';

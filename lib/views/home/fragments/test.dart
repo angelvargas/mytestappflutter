@@ -44,11 +44,11 @@ class _EthAppState extends State<EthApp> {
     });
 
     try {
-      final address = EthereumAddress(_addressController.text);
-      final ethAmount = await _client.getBalance(address);
+      // final address = EthereumAddress(_addressController.text);
+      // final ethAmount = await _client.getBalance(address);
 
       setState(() {
-        _balance = '${ethAmount.getValueInUnit(EtherUnit.ether)} Eth';
+        // _balance = '${ethAmount.getValueInUnit(EtherUnit.ether)} Eth';
       });
     } catch (e, s) {
       print(e);
