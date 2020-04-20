@@ -4,6 +4,8 @@ import 'package:mytestappflutter/views/home/fragments/crypto_fragment.dart';
 import 'package:mytestappflutter/views/home/fragments/web3j_fragment.dart';
 import 'package:mytestappflutter/presenter/web3j_presenter.dart';
 import 'package:mytestappflutter/views/test/screenone.dart';
+import 'fragments/TercerReto.dart';
+import 'fragments/bluefish.dart';
 
 class DrawerItem {
   String title;
@@ -13,12 +15,13 @@ class DrawerItem {
 
 class HomePage extends StatefulWidget{
   final drawerItems = [
-    new DrawerItem("Segundo Reto Platzi", Icons.rss_feed),
-    new DrawerItem("Dart web3", Icons.local_pizza),
-    new DrawerItem("Crypto Currencies", Icons.info),
-    new DrawerItem("Ethereum", Icons.info),
-    new DrawerItem("Tercer Reto Platzi", Icons.rss_feed),
-    new DrawerItem("screen one", Icons.rss_feed),
+    new DrawerItem("Segundo Reto Platzi", Icons.rss_feed),//0
+    new DrawerItem("Dart web3", Icons.local_pizza),//1
+    new DrawerItem("Crypto Currencies", Icons.info),//2
+    new DrawerItem("Ethereum", Icons.info),//3
+    new DrawerItem("ScreenOne", Icons.rss_feed),//4
+    new DrawerItem("Bluefish", Icons.rss_feed),//5
+    new DrawerItem("Tercer Reto Platzi", Icons.rss_feed),//6
   ];
 
   @override
@@ -40,8 +43,12 @@ class HomePageState extends State<HomePage>{
         return new CryptoFragment();
       case 3:
         return new Web3jFragment(new BasicWeb3jPresenter());
+      case 4:
+        return ScreenOne();
       case 5:
-        return ScreenOne();    
+        return Bluefish();
+      case 6:
+        return TercerReto();    
       default:
         return new SegundoReto();
         //return new Text("Error");

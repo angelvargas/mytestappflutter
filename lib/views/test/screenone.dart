@@ -8,11 +8,7 @@ class ScreenOne extends StatefulWidget {
 class _ScreenOneState extends State<ScreenOne> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Reply demo"),
-      ),
-      bottomNavigationBar: BottomAppBar(
+    return BottomAppBar(
         elevation: 0,
         color: Color(0xff344955),
         child: Container(
@@ -32,8 +28,7 @@ class _ScreenOneState extends State<ScreenOne> {
             )
           ]),
         ),
-      ),
-    );
+      );
   }
 
   showMenu() {

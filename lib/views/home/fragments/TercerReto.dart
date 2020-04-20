@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 class TercerReto extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return null;
-  }
+  TercerRetoState createState() => TercerRetoState();
 }
 
 class TercerRetoState extends State<TercerReto> {
@@ -17,10 +14,9 @@ class TercerRetoState extends State<TercerReto> {
   }
 }
 
-class Item {
-  String imagen;
-  String titulo;
-  String subtitulo;
-  String icono;
-  Item(this.imagen, this.titulo, this.subtitulo, this.icono );
+class Usuarios {
+  String name;
+  String description;
+  String iconaction;
+  Usuarios(this.name, this.description, this.iconaction );
 }
