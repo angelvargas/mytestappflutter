@@ -9,7 +9,7 @@ class TercerRetoState extends State<TercerReto> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      // crossAxisAlignment: CrossAxisAlignment.start,
+      // padding: EdgeInsets.only(top:10),
       scrollDirection: Axis.vertical,
       children: <Widget>[
         Review("assets/img/persona1.jpg", "Miguel Lopez", "Experiencia : 1 años"),
@@ -55,15 +55,17 @@ class Review extends StatelessWidget {
       ),
     );
 
-    final userDetails = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[username, userInfo],
-    );
+    final userDetails = Container(
+      width: MediaQuery.of(context).size.width * 0.6, 
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[username, userInfo],
+    ));
 
     final photo = Container(
-      margin: EdgeInsets.only(top: 20.0, left: 20.0),
-      width: 80.0,
-      height: 80.0,
+      // margin: EdgeInsets.only(left: 20.0),
+      width: 40,
+      height: 40,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           image:
@@ -71,17 +73,46 @@ class Review extends StatelessWidget {
     );
     
     final actions = Container(
-      margin: EdgeInsets.only(top: 20.0, left: 20.0),
-      width: 80.0,
-      height: 80.0,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          image:
-              DecorationImage(fit: BoxFit.cover, image: AssetImage(pathImage))),
+      width: MediaQuery.of(context).size.width * 0.2,
+      child: Row(
+        children: <Widget>[
+          Container(
+            child: Icon(Icons.mail),
+            width: 30.0,
+            height: 30.0,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(233, 230, 230, 1),
+              shape: BoxShape.circle,)
+          ),
+          Container(
+            child: Icon(Icons.mail),
+            width: 30.0,
+            height: 30.0,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(233, 230, 230, 1),
+              shape: BoxShape.circle,)
+          ),
+        ]
+      ),
+      
     );
 
-    return Row(
-      children: <Widget>[photo, userDetails, actions],
+    // return Row(
+    //   children: <Widget>[photo, userDetails, actions],
+    // );
+    return Dismissible( 
+      key: UniqueKey(),
+      child : Card(
+        child: Column(
+          children:<Widget>[ ListTile(
+            leading: photo,
+            title: username,
+            subtitle: userInfo,
+            trailing: actions,
+          )
+          ]
+        )
+      )
     );
   }
 }

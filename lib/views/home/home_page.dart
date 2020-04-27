@@ -91,7 +91,7 @@ class HomePageState extends State<HomePage>{
           children: <Widget>[
             new UserAccountsDrawerHeader(
               accountName: new Text("John Doe"), accountEmail: null),
-            new Column(children: drawerOptions)
+              new Column(children: drawerOptions)
           ],
         ),
       ),
